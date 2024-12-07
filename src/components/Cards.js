@@ -9,13 +9,13 @@ export default function Cards() {
           style={{ width: "18rem", maxheight: "360px"}}
         >
           <img
-            src="https://plus.unsplash.com/premium_photo-1683121716061-3faddf4dc504?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             className="card-img-top"
             alt="..."
             style={{ height: "200px" }}
           />
           <div className="card-body">
-            <h5 className="card-title">Tech title</h5>
+            <h5 className="card-title">Food title</h5>
             <p className="card-text">This is the first text</p>
             <div className="container w-100 ">
               <select className="container-list m-2 h-100 bg-info container-list-light rounded">

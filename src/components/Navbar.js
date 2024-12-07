@@ -7,7 +7,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg navbar-light bg-info">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-            Tech Blog
+            Your Food
           </Link>
           <button
             className="navbar-toggler"
