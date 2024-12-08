@@ -30,6 +30,12 @@ const mongoDB = async () => {
 
     // Query the collection and display results
     const data = await fetched_data.find({}).toArray();
+
+    if (data.length === 0) {
+      console.log("The foodData collection is empty.");
+    } else {
+      // console.log("Data from foodData collection:", data);
+    }
     // console.log("Data from foodData collection:", data);
   } catch (err) {
     console.error("Error connecting to the database or fetching data:", err.message);
