@@ -48,7 +48,7 @@ const User = require("../models/User");
 const { body, validationResult } = require("express-validator");
 
 router.post(
-  "./createuser",
+  "/createuser",
   [
     body("email").isEmail(),
     body("name", "Name is required").notEmpty(),
