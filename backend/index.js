@@ -30,6 +30,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api", require("./Routes/Createuser"));
+app.use("/api", require("./Routes/Loginuser"));
 
 
 
