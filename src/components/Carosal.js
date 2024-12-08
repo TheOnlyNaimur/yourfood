@@ -24,32 +24,32 @@ export default function Carosal() {
           </div>
           <div className="carousel-item active">
             <img
-              src="https://images.unsplash.com/photo-1494390248081-4e521a5940db?q=80&w=2006&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              className="Bl1-block w-100 h-10"
+              src="Images/fd1.jpg"
+              className="Bl1-block w-100 "
               alt="..."
               style={{filter: "brightness(80%)"}}
             />
           </div>
           <div className="carousel-item">
             <img
-              src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              className="d-block w-100 h-10"
+              src="Images/fd2.jpg"
+              className="d-block w-100 "
               alt="..."
               style={{filter: "brightness(80%)"}}
             />
           </div>
           <div className="carousel-item">
             <img
-              src="https://images.unsplash.com/photo-1464306208223-e0b4495a5553?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              className="d-block w-100 h-10"
+              src="Images/fd3.jpg"
+              className="d-block w-100"
               alt="..."
               style={{filter: "brightness(80%)"}}
             />
           </div>
           <div className="carousel-item">
             <img
-              src="https://images.unsplash.com/photo-1450152021501-598b36b17449?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              className="d-block w-100 h-10"
+              src="Images/fd4.jpg"
+              className="d-block w-100 "
               alt="..."
               style={{filter: "brightness(80%)"}}
             />
