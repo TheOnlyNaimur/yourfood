@@ -27,6 +27,8 @@ export default function Login() {
 
 
     if (json.success) {
+      localStorage.setItem("authToken", json.authToken); // Save the token in local storage
+      console.log(localStorage.getItem("authToken")); // Check if the token is saved
       navigate("/"); // Redirect to home page
     } else {
       alert("Invalid credentials");

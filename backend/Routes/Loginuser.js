@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const { body, validationResult } = require("express-validator");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
+const jwtsecret = "Mynameisnaimurislamnavidandilovecoding";
 
 router.post(
   "/loginuser",
@@ -27,9 +30,24 @@ router.post(
           .json({ success: false, error: "User not found" });
       }
 
-      if (userData.password === req.body.password) {
+      const pwdCompare = await bcrypt.compare(
+        req.body.password,
+        userData.password
+      );
+
+      // if (userData.password === req.body.password) {
+      if (!pwdCompare) {
+        // Generate JWT token
+        const data = {
+          user: {
+            id: userData.id,
+          },
+        };
+        const authToken = jwt.sign(data, jwtsecret);
+
         return res.json({
           success: true,
+          authToken: authToken,
           message: "User logged in successfully",
         });
       } else {
