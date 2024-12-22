@@ -1,33 +1,36 @@
-const express = require("express");
+const express = require('express');
+const mongoDb = require('./db'); // Ensure this is correct
 const app = express();
 const port = 5000;
-const mongoDB = require("./db");
-mongoDB();
 
-// Middleware to handle cross-origin requests
+// Connect to MongoDB
+mongoDb();
+
+// CORS Middleware
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000"); // Update to match your frontend domain
-  // res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE"); // Specify allowed HTTP methods (optional)
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  ); // Specify allowed headers
-  next();
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    next();
 });
+
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
 
-app.use("/api", require("./Routes/Createuser"));
-app.use("/api", require("./Routes/Loginuser"));
-app.use("/api", require("./Routes/DisplayData"));
+app.use('/api', require('./Routes/Createuser'));
+app.use('/api', require('./Routes/Loginuser'));
+app.use('/api', require('./Routes/DisplayData'));
+
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+    console.log(`Server listening on port ${port}`);
 });
+
 
 // -----------------------------------------------------------------------------------------------------------
 

@@ -5,46 +5,85 @@ import Cards from "../components/Cards";
 import Carosal from "../components/Carosal";
 
 export default function Home() {
-  const [foodCat, setFoodCat] = useState([]);
-  const [foodItems, setFoodItems] = useState([]);
+  // const [search, setSearch] = useState('');
+    const [foodCat, setFoodCat] = useState([]);
+    const [foodItems, setFoodItems] = useState([]);
 
-  const loadData = async () => {
-    let response = await fetch("http://localhost:5000/api/foodCategory", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    response = await response.json();
-    setFoodItems(response[0]);
-    setFoodCat(response[1]);
-  };
+    const loadData = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/api/foodData', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
 
-  useEffect(() => {
-    loadData();
-  }, []);
+            const data = await response.json();
+
+
+
+            if (data.success) {
+                setFoodCat(data.foodCategory);
+                setFoodItems(data.foodItems);
+                console.log(data);
+                // console.log(data.Name) // Check the console to see the data
+            } else {
+                console.error('Failed to load data:');
+            }
+
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
+    useEffect(() => {
+        loadData();
+    }, []);
+
 
   return (
     <div>
-      <div>
-        <Navbar />
-      </div>
-      <div>
-        <Carosal />
-      </div>
+      <Navbar />
+      <Carosal />
       <div className="container">
-        {foodCat.length > 0 ? (
-          foodCat.map((data) => {
-            return <div>{data.CategoryName}</div>;
-          })
-        ) : (
-          <div>'Loading...'</div>
-        )}
-      </div>
 
-      <div>
-        <Footer />
+
+        {
+        // foodCat.length > 0 ? foodCat.map((data, index) => (
+        //   <div key={index}>{data.CategoryName}</div>
+        // )) : <div>No categories available</div>
+
+        foodCat.length > 0 ? foodCat.map((data) => {
+          return ( 
+            <>
+            <div className='flex flex-wrap gap-4'>
+            <div key={data._id}>
+              <div className='fs-3  m-3'>{data.CategoryName}</div>
+              <hr />
+              {/* <div className='flex flex-wrap gap-4'> */}
+              {foodItems.length > 0 ? foodItems.filter((item) => item.CategoryName === data.CategoryName).map(filterItems => {
+                return (
+                  <div key={filterItems._id}> 
+                    <Cards />
+                  </div>
+                )
+              }) : <div>No items available</div>}
+            </div></div> </>
+          )
+        }) : <div>No categories available</div>
+        
+        
+        
+        
+        
+        }
+
+        <Cards />
       </div>
+      <Footer />
     </div>
   );
 }
+
+
+
