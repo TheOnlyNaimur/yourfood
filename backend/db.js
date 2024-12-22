@@ -22,7 +22,7 @@ async function mongoDb() {
         global.foodCategory = foodCategory;
 
 
-        // console.log('Data loaded into global variables');
+        console.log('Data loaded into global variables');
         // console.log('Food items:', global.foodItems);
         // console.log('Food categories:', global.foodCategory);
 

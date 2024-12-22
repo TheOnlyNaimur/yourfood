@@ -10,8 +10,8 @@ router.post('/foodData', (req, res) => { //This line sets up a POST route for th
 
     
 
-        console.log('Food items:', global.foodItems);
-        console.log('Food categories:', global.foodCategory);
+        // console.log('Food items:', global.foodItems);
+        // console.log('Food categories:', global.foodCategory);
 
         // Send both food items and categories in a single response object
         res.status(200).json({
